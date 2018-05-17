@@ -1,12 +1,14 @@
 //
 //  AppDelegate.m
-//  Jiemo_IM
+//  JM_IM_Demo
 //
 //  Created by merrill on 2018/5/15.
 //  Copyright © 2018年 Tim2018. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "MainViewController.h"
+#import "IMClientManager.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [IMClientManager sharedInstance];
+    
+    self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
+    NavigationController * navigationController = [MainViewController sharedNavigation];
+    self.window.rootViewController = navigationController;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
