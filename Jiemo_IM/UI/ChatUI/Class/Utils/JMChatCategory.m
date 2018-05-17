@@ -7,6 +7,7 @@
 //
 
 #import "JMChatCategory.h"
+#import "JMMessage.h"
 
 @implementation UIScreen (JMChatCategory)
 
@@ -85,7 +86,7 @@
 
 + (nullable instancetype)photoViewerResourceBundle
 {
-    NSString *resourceBundlePath = [[NSBundle bundleForClass:[NSObject class]] pathForResource:@"UUChatTableView" ofType:@"bundle"];
+    NSString *resourceBundlePath = [[NSBundle bundleForClass:[JMMessage class]] pathForResource:@"UUChatTableView" ofType:@"bundle"];
     return [self bundleWithPath:resourceBundlePath];
 }
 

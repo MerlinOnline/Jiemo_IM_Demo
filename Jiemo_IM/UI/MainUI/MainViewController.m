@@ -7,9 +7,15 @@
 //
 
 #import "MainViewController.h"
-#import "TestViewController.h"
+#import "IMClientManager.h"
+#import "DataBaseManager.h"
+#import "ChatViewController.h"
 
 @interface MainViewController ()
+
+@property (weak, nonatomic) IBOutlet UITextField *accountTF;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTK;
+@property (weak, nonatomic) IBOutlet UITextField *friendIdTf;
 
 @end
 
@@ -20,21 +26,46 @@
     // Do any additional setup after loading the view.
     
     self.title = NSLocalizedString(@"homeText", nil);
-    
-    UIButton *testButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    testButton.frame = CGRectMake(100, 100, 200, 50);
-    [testButton setTitle:@"testView" forState:UIControlStateNormal];
-    [testButton setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
-    [testButton addTarget:self action:@selector(testButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:testButton];
-    
+    [self initDatabase];
+ 
 }
 
-- (void)testButtonClick:(id)sender {
+- (void)initDatabase {
     
-    TestViewController *testVC= [[TestViewController alloc]initWithNibName:@"TestViewController" bundle:[NSBundle mainBundle]];
-    [self.navigationController pushViewController:testVC animated:YES];
+    ChatMessage *message = [ChatMessage new];
+    message.message_Id = 1;
+    message.userId = @"im_10001";
+    message.nickName = @"Tim";
+    message.age = 27;
+    message.sex = 1;
+    message.headUrl = @"https://www.baidu.com";
+    message.imageUrl = @"https://www.baidu.com";
+    message.content = @"我操了你大爷!";
+//    [[DataBaseManager sharedInstance] addChatMessage:message];
+//    [[DataBaseManager sharedInstance] updateChatMessage:message];
+    [[DataBaseManager sharedInstance] deleteChatMessage:message];
+    
+    
+    NSArray *dataSource = [[DataBaseManager sharedInstance] getAllChatMessage];
+    NSLog(@"dataSource : %@" , dataSource);
 }
+
+- (IBAction)loginBtnClick:(id)sender {
+    
+    [[IMClientManager sharedInstance] loginImplWithUserId:self.accountTF.text andUserToken:self.passwordTK.text];
+}
+
+- (IBAction)logoutBtnClick:(id)sender {
+    [[IMClientManager sharedInstance] logoutImpl];
+}
+
+- (IBAction)senderMsgBtnClick:(id)sender {
+    [self.friendIdTf resignFirstResponder];
+    ChatViewController *chatVC = [ChatViewController new];
+    chatVC.friendId = self.friendIdTf.text;
+    [self.navigationController pushViewController:chatVC animated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

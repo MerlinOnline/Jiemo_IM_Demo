@@ -11,6 +11,9 @@
 #import "JMMoreView.h"
 #import "JMEmojiView.h"
 #import "UIView+Helper.h"
+#import "JMChatCategory.h"
+#import "JMProgressHUD.h"
+#import <AVFoundation/AVFoundation.h>
 
 //状态栏和导航栏的总高度
 #define StatusNav_Height (isIphoneX ? 88 : 64)
@@ -22,11 +25,16 @@
 static float bottomHeight = 230.0f; //底部视图高度
 static float viewMargin = 8.0f; //按钮距离上边距
 static float viewHeight = 36.0f; //按钮视图高度
-@interface JMKeyBoardView ()<UITextViewDelegate>
+@interface JMKeyBoardView ()<UITextViewDelegate,AVAudioRecorderDelegate>
 
-@property (nonatomic, strong) UIView *backView;
-@property (nonatomic, strong) UIButton *emojiBtn;
-@property (nonatomic, strong) UIButton *moreBtn;
+@property (nonatomic, assign) NSInteger playTime;
+@property (nonatomic, strong) NSString *docmentFilePath;
+
+@property (nonatomic, strong) UIView * backView;
+@property (nonatomic, strong) UIButton * emojiBtn;
+@property (nonatomic, strong) UIButton * moreBtn;
+@property (nonatomic, strong) UIButton * voiceBtn;
+@property (nonatomic, strong) UIButton * voiceRecordBtn;
 @property (nonatomic, strong) JMTextView *textView;
 @property (nonatomic, strong) JMMoreView *moreView;
 @property (nonatomic, strong) JMEmojiView *emojiView;
@@ -34,8 +42,12 @@ static float viewHeight = 36.0f; //按钮视图高度
 @property (nonatomic, assign) CGFloat totalYOffset;
 @property (nonatomic, assign) float keyboardHeight; //键盘高度
 @property (nonatomic, assign) double keyboardTime; //键盘动画时长
-@property (nonatomic, assign) BOOL emojiClick; //点击表情按钮
-@property (nonatomic, assign) BOOL moreClick; //点击更多按钮
+@property (nonatomic, assign) BOOL voiceClick;  // 点击语音按钮
+@property (nonatomic, assign) BOOL emojiClick;  //点击表情按钮
+@property (nonatomic, assign) BOOL moreClick;  //点击更多按钮
+
+@property (nonatomic, strong) NSTimer *playTimer;
+@property (nonatomic, strong) AVAudioRecorder *recorder;
 
 @end
 
@@ -61,18 +73,48 @@ static float viewHeight = 36.0f; //按钮视图高度
 - (void)creatView {
     self.backView.frame = CGRectMake(0, 0, self.width, self.height);
     
-    //表情按钮
-    self.emojiBtn.frame = CGRectMake(viewMargin, viewMargin, viewHeight, viewHeight);
-    
-    //输入视图
-    self.textView.frame = CGRectMake(CGRectGetMaxX(self.emojiBtn.frame) + viewMargin, viewMargin, K_Width - (CGRectGetMaxX(self.emojiBtn.frame) + viewMargin) * 2, viewHeight);
+    // 语音按钮
+    self.voiceBtn.frame = CGRectMake(viewMargin, viewMargin, viewHeight, viewHeight);
     
     //加号按钮
-    self.moreBtn.frame = CGRectMake(CGRectGetMaxX(self.textView.frame) + viewMargin, self.height - viewMargin - viewHeight, viewHeight, viewHeight);
+    self.moreBtn.frame = CGRectMake(self.width - viewMargin - viewHeight, viewMargin, viewHeight, viewHeight);
+    
+    //表情按钮
+    self.emojiBtn.frame = CGRectMake(self.moreBtn.left -  viewMargin - viewHeight, viewMargin, viewHeight, viewHeight);
+    
+    //输入视图
+    self.textView.frame = CGRectMake(self.voiceBtn.right + viewMargin, viewMargin, self.emojiBtn.left - self.voiceBtn.right - viewMargin * 2, viewHeight);
+    
+    // 录音按钮
+    self.voiceRecordBtn.frame = self.textView.frame;
+}
+
+#pragma mark ====== 语音按钮 ======
+
+- (void)voiceBtnClick:(UIButton*)sender {
+    self.voiceRecordBtn.hidden = !self.voiceRecordBtn.hidden;
+    self.textView.hidden  = !self.textView.hidden;
+    self.voiceClick = !self.voiceClick;
+    if (self.voiceClick) {
+        [self.voiceBtn setBackgroundImage:[UIImage imageWithName:@"chat_btn_keyboard"] forState:UIControlStateNormal];
+        [self.textView resignFirstResponder];
+    }else{
+        [self.voiceBtn setBackgroundImage:[UIImage imageWithName:@"chat_btn_recod"] forState:UIControlStateNormal];
+        [self.textView becomeFirstResponder];
+    }
+}
+
+- (void)changeVoiceBtnState {
+    self.voiceClick = NO;
+    self.voiceRecordBtn.hidden = YES;
+    self.textView.hidden  = NO;
+    [self.voiceBtn setBackgroundImage:[UIImage imageWithName:@"chat_btn_recod"] forState:UIControlStateNormal];
 }
 
 #pragma mark ====== 表情按钮 ======
 - (void)emojiBtn:(UIButton *)btn {
+    [self changeVoiceBtnState];
+    
     self.moreClick = NO;
     if (self.emojiClick == NO) {
         self.emojiClick = YES;
@@ -92,6 +134,8 @@ static float viewHeight = 36.0f; //按钮视图高度
 
 #pragma mark ====== 加号按钮 ======
 - (void)moreBtn:(UIButton *)btn {
+    [self changeVoiceBtnState];
+    
     self.emojiClick = NO; //主要是设置表情按钮为未点击状态
     if (self.moreClick == NO) {
         self.moreClick = YES;
@@ -120,12 +164,26 @@ static float viewHeight = 36.0f; //按钮视图高度
     //当输入框大小改变时，改变backView的frame
     self.backView.frame = CGRectMake(0, 0, K_Width, height + (viewMargin * 2));
     self.frame = CGRectMake(0, K_Height - StatusNav_Height - self.backView.height - _keyboardHeight, K_Width, self.backView.height);
+   
     //改变更多按钮、表情按钮的位置
-    self.emojiBtn.frame = CGRectMake(viewMargin, self.backView.height - viewHeight - viewMargin, viewHeight, viewHeight);
-    self.moreBtn.frame = CGRectMake(self.textView.right + viewMargin, self.backView.height - viewHeight - viewMargin, viewHeight, viewHeight);
+    self.voiceBtn.bottom = self.backView.bottom - viewMargin;
+    self.moreBtn.bottom = self.backView.bottom - viewMargin;
+    self.emojiBtn.bottom = self.backView.bottom - viewMargin;
     
     //主要是为了改变VC的tableView的frame
     [self changeTableViewFrame];
+}
+
+- (void)changeBackViewFrame {
+    if (self.voiceClick) {
+        self.backView.height = self.voiceRecordBtn.bottom + viewMargin;
+    }else {
+        self.backView.height = self.textView.bottom + viewMargin;
+    }
+    //改变更多按钮、表情按钮的位置
+    self.voiceBtn.bottom = self.backView.bottom - viewMargin;
+    self.moreBtn.bottom = self.backView.bottom - viewMargin;
+    self.emojiBtn.bottom = self.backView.bottom - viewMargin;
 }
 
 #pragma mark ====== 点击空白处，键盘收起时，移动self至底部 ======
@@ -135,6 +193,7 @@ static float viewHeight = 36.0f; //按钮视图高度
     [self removeBottomViewFromSupview];
     [UIView animateWithDuration:0.25 animations:^{
         //设置self的frame到最底部
+        [self changeBackViewFrame];
         self.frame = CGRectMake(0, K_Height - StatusNav_Height - self.backView.height, K_Width, self.backView.height);
         [self changeTableViewFrame];
     }];
@@ -151,7 +210,8 @@ static float viewHeight = 36.0f; //按钮视图高度
     //键盘的动画时长
     CGFloat duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration delay:0 options:[notification.userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue] animations:^{
-        self.frame = CGRectMake(0, endFrame.origin.y - self.backView.height - StatusNav_Height, K_Width, self.height);
+        [self changeBackViewFrame];
+        self.frame = CGRectMake(0, endFrame.origin.y - self.backView.height - StatusNav_Height, K_Width, self.backView.height);
         [self changeTableViewFrame];
     } completion:nil];
 }
@@ -163,6 +223,7 @@ static float viewHeight = 36.0f; //按钮视图高度
         return;
     }
     [UIView animateWithDuration:0.25 animations:^{
+        [self changeBackViewFrame];
         self.frame = CGRectMake(0, K_Height - StatusNav_Height - self.backView.height, K_Width, self.backView.height);
         [self changeTableViewFrame];
     }];
@@ -189,8 +250,8 @@ static float viewHeight = 36.0f; //按钮视图高度
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     //判断输入的字是否是回车，即按下return
     if ([text isEqualToString:@"\n"]){
-        if (self.delegate && [self.delegate respondsToSelector:@selector(textViewContentText:)]) {
-            [self.delegate textViewContentText:textView.text];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(JMKeyBoardView:sendMessage:)]) {
+            [self.delegate JMKeyBoardView:self sendMessage:textView.text];
         }
         [self changeFrame:viewHeight];
         textView.text = @"";
@@ -202,6 +263,7 @@ static float viewHeight = 36.0f; //按钮视图高度
 }
 
 #pragma mark ====== init ======
+// 輸入框背景
 - (UIView *)backView {
     if (!_backView) {
         _backView = [UIView new];
@@ -216,7 +278,7 @@ static float viewHeight = 36.0f; //按钮视图高度
 - (UIButton *)emojiBtn {
     if (!_emojiBtn) {
         _emojiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_emojiBtn setBackgroundImage:[UIImage imageNamed:@"chat_btn_face"] forState:UIControlStateNormal];
+        [_emojiBtn setBackgroundImage:[UIImage imageWithName:@"chat_btn_face"] forState:UIControlStateNormal];
         [_emojiBtn addTarget:self action:@selector(emojiBtn:) forControlEvents:UIControlEventTouchUpInside];
         [self.backView addSubview:_emojiBtn];
     }
@@ -227,13 +289,46 @@ static float viewHeight = 36.0f; //按钮视图高度
 - (UIButton *)moreBtn {
     if (!_moreBtn) {
         _moreBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_moreBtn setBackgroundImage:[UIImage imageNamed:@"chat_btn_add"] forState:UIControlStateNormal];
+        [_moreBtn setBackgroundImage:[UIImage imageWithName:@"chat_btn_add"] forState:UIControlStateNormal];
         [_moreBtn addTarget:self action:@selector(moreBtn:) forControlEvents:UIControlEventTouchUpInside];
         [self.backView addSubview:_moreBtn];
     }
     return _moreBtn;
 }
 
+// 語音按鈕
+- (UIButton *)voiceBtn {
+    if (!_voiceBtn) {
+        _voiceBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_voiceBtn setBackgroundImage:[UIImage imageWithName:@"chat_btn_recod"] forState:UIControlStateNormal];
+        [_voiceBtn addTarget:self action:@selector(voiceBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.backView addSubview:_voiceBtn];
+    }
+    return _voiceBtn;
+}
+
+// 录音按鈕
+- (UIButton *)voiceRecordBtn {
+    if (!_voiceRecordBtn) {
+        _voiceRecordBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _voiceRecordBtn.hidden = YES;
+        [_voiceRecordBtn setBackgroundImage:[UIImage imageWithName:@"chat_message_back"] forState:UIControlStateNormal];
+        [_voiceRecordBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [_voiceRecordBtn setTitleColor:[[UIColor lightGrayColor] colorWithAlphaComponent:0.5] forState:UIControlStateHighlighted];
+        [_voiceRecordBtn setTitle:@"按钮 说话" forState:UIControlStateNormal];
+        [_voiceRecordBtn setTitle:@"松开 结束" forState:UIControlStateHighlighted];
+        [_voiceRecordBtn addTarget:self action:@selector(beginRecordVoice:) forControlEvents:UIControlEventTouchDown];
+        [_voiceRecordBtn addTarget:self action:@selector(endRecordVoice:) forControlEvents:UIControlEventTouchUpInside];
+        [_voiceRecordBtn addTarget:self action:@selector(cancelRecordVoice:) forControlEvents:UIControlEventTouchUpOutside | UIControlEventTouchCancel];
+        [_voiceRecordBtn addTarget:self action:@selector(RemindDragExit:) forControlEvents:UIControlEventTouchDragExit];
+        [_voiceRecordBtn addTarget:self action:@selector(RemindDragEnter:) forControlEvents:UIControlEventTouchDragEnter];
+        
+        [self.backView addSubview:_voiceRecordBtn];
+    }
+    return _voiceRecordBtn;
+}
+
+// 輸入框
 - (JMTextView *)textView {
     if (!_textView) {
         _textView = [[JMTextView alloc] init];
@@ -268,6 +363,137 @@ static float viewHeight = 36.0f; //按钮视图高度
         _emojiView.frame = CGRectMake(0, K_Height, K_Width, bottomHeight);
     }
     return _emojiView;
+}
+
+#pragma mark - 录音touch事件
+- (void)beginRecordVoice:(UIButton *)button
+{
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    NSError *err = nil;
+    [audioSession setCategory :AVAudioSessionCategoryRecord error:&err];
+    if (err) {
+        NSLog(@"audioSession: %@ %zd %@", [err domain], [err code], [[err userInfo] description]);
+        return;
+    }
+    [audioSession setActive:YES error:&err];
+    if (err) {
+        NSLog(@"audioSession: %@ %zd %@", [err domain], [err code], [[err userInfo] description]);
+        return;
+    }
+    
+    
+    NSDictionary *recordSetting = @{
+                                    AVEncoderAudioQualityKey : [NSNumber numberWithInt:AVAudioQualityMin],
+                                    AVEncoderBitRateKey : [NSNumber numberWithInt:16],
+                                    AVFormatIDKey : [NSNumber numberWithInt:kAudioFormatLinearPCM],
+                                    AVNumberOfChannelsKey : @2,
+                                    AVLinearPCMBitDepthKey : @8
+                                    };
+    NSError *error = nil;
+    //    NSString *docments = [NSHomeDirectory() stringByAppendingString:@"Documents"];
+    NSString *docments = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    _docmentFilePath = [NSString stringWithFormat:@"%@/%@",docments,@"123"];
+    
+    NSURL *pathURL = [NSURL fileURLWithPath:_docmentFilePath];
+    _recorder = [[AVAudioRecorder alloc] initWithURL:pathURL settings:recordSetting error:&error];
+    if (error || !_recorder) {
+        NSLog(@"recorder: %@ %zd %@", [error domain], [error code], [[error userInfo] description]);
+        return;
+    }
+    _recorder.delegate = self;
+    [_recorder prepareToRecord];
+    _recorder.meteringEnabled = YES;
+    
+    if (!audioSession.inputIsAvailable) {
+        
+        return;
+    }
+    
+    
+    [_recorder record];
+    _playTime = 0;
+    _playTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countVoiceTime) userInfo:nil repeats:YES];
+    [JMProgressHUD show];
+}
+
+- (void)endRecordVoice:(UIButton *)button
+{
+    [_recorder stop];
+    [_playTimer invalidate];
+    _playTimer = nil;
+}
+
+- (void)cancelRecordVoice:(UIButton *)button
+{
+    if (_playTimer) {
+        [_recorder stop];
+        [_recorder deleteRecording];
+        [_playTimer invalidate];
+        _playTimer = nil;
+    }
+    [JMProgressHUD dismissWithError:@"Cancel"];
+}
+
+- (void)RemindDragExit:(UIButton *)button
+{
+    [JMProgressHUD changeSubTitle:@"Release to cancel"];
+}
+
+- (void)RemindDragEnter:(UIButton *)button
+{
+    [JMProgressHUD changeSubTitle:@"Slide up to cancel"];
+}
+
+
+- (void)countVoiceTime
+{
+    _playTime ++;
+    if (_playTime>=60) {
+        [self endRecordVoice:nil];
+    }
+}
+
+#pragma mark - Mp3RecorderDelegate
+
+//回调录音资料
+- (void)endConvertWithData:(NSData *)voiceData
+{
+    [self.delegate JMKeyBoardView:self sendVoice:voiceData time:_playTime+1];
+    [JMProgressHUD dismissWithSuccess:@"Success"];
+    
+    //缓冲消失时间 (最好有block回调消失完成)
+    self.voiceRecordBtn.enabled = NO;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.voiceRecordBtn.enabled = YES;
+    });
+}
+
+- (void)failRecord
+{
+    [JMProgressHUD dismissWithSuccess:@"Too short"];
+    
+    //缓冲消失时间 (最好有block回调消失完成)
+    self.voiceRecordBtn.enabled = NO;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.voiceRecordBtn.enabled = YES;
+    });
+}
+
+#pragma mark - AVAudioRecorderDelegate
+
+- (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
+{
+    NSURL *url = [NSURL fileURLWithPath:_docmentFilePath];
+    NSError *err = nil;
+    NSData *audioData = [NSData dataWithContentsOfFile:[url path] options:0 error:&err];
+    if (audioData) {
+        [self endConvertWithData:audioData];
+    }
+}
+
+- (void)audioRecorderEncodeErrorDidOccur:(AVAudioRecorder *)recorder error:(NSError *)error
+{
+    
 }
 
 #pragma mark ====== 移除监听 ======

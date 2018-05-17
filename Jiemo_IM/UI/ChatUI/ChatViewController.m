@@ -96,10 +96,53 @@
     [self.view addSubview:_inputView];
 }
 
-#pragma mark ====== DKSKeyboardDelegate ======
-//发送的文案
-- (void)textViewContentText:(NSString *)textStr {
- 
+// 初始化model
+- (void)loadBaseViewsAndData
+{
+    self.chatModel = [[JMChatModel alloc] init];
+    self.chatModel.isGroupChat = NO;
+    
+    [self.tableView reloadData];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveMessageNotification:) name:@"JMReceiveMessageNotification" object:nil];
+}
+
+- (void)receiveMessageNotification:(NSNotification*)notice {
+    
+    NSDictionary *msgDic = notice.object;
+    NSDictionary *dic = @{@"strContent": msgDic[@"message"],
+                          @"userId":msgDic[@"userId"],
+                          @"type": @(JMMessageTypeText),
+                          @"isMe":@NO};
+    [self dealTheFunctionData:dic];
+}
+
+#pragma mark - JMKeyBoardDelegate
+
+- (void)JMKeyBoardView:(JMKeyBoardView *)funcView sendMessage:(NSString *)message
+{
+    NSDictionary *dic = @{@"strContent": message,
+                          @"type": @(JMMessageTypeText),
+                          @"isMe": @YES};
+    [self dealTheFunctionData:dic];
+    [[IMClientManager sharedInstance] sendMessageDataWithMsg:message toFriendId:self.friendId];
+}
+
+- (void)JMKeyBoardView:(JMKeyBoardView *)funcView sendPicture:(UIImage *)image
+{
+    NSDictionary *dic = @{@"picture": image,
+                          @"type": @(JMMessageTypePicture),
+                          @"isMe": @YES};
+    [self dealTheFunctionData:dic];
+}
+
+- (void)JMKeyBoardView:(JMKeyBoardView *)funcView sendVoice:(NSData *)voice time:(NSInteger)second
+{
+    NSDictionary *dic = @{@"voice": voice,
+                          @"strVoiceTime": [NSString stringWithFormat:@"%d",(int)second],
+                          @"type": @(JMMessageTypeVoice),
+                          @"isMe": @YES};
+    [self dealTheFunctionData:dic];
 }
 
 //keyboard的frame改变
@@ -123,33 +166,7 @@
     }
 }
 
-
-// 初始化model
-- (void)loadBaseViewsAndData
-{
-    self.chatModel = [[JMChatModel alloc] init];
-    self.chatModel.isGroupChat = NO;
-    
-    [self.tableView reloadData];
-        
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveMessageNotification:) name:@"JMReceiveMessageNotification" object:nil];
-}
-
-- (void)receiveMessageNotification:(NSNotification*)notice {
- 
-    NSDictionary *msgDic = notice.object;
-    NSDictionary *dic = @{@"strContent": msgDic[@"message"],
-                          @"userId":msgDic[@"userId"],
-                          @"type": @(JMMessageTypeText),
-                          @"isMe":@NO};
-    [self dealTheFunctionData:dic];
-}
-
-
-
-
 #pragma mark - InputFunctionViewDelegate
-
 
 - (void)dealTheFunctionData:(NSDictionary *)dic
 {

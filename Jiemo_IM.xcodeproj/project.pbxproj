@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		140426A020AAABC900C31ABC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1404269F20AAABC900C31ABC /* AppDelegate.m */; };
-		140426A920AAABC900C31ABC /* Jiemo_IM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 140426A720AAABC900C31ABC /* Jiemo_IM.xcdatamodeld */; };
 		140426AB20AAABCB00C31ABC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 140426AA20AAABCB00C31ABC /* Assets.xcassets */; };
 		140426AE20AAABCB00C31ABC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 140426AC20AAABCB00C31ABC /* LaunchScreen.storyboard */; };
 		140426B120AAABCB00C31ABC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 140426B020AAABCB00C31ABC /* main.m */; };
@@ -22,14 +21,16 @@
 		1404270F20AAB60500C31ABC /* ChatTransDataEventImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1404270E20AAB60500C31ABC /* ChatTransDataEventImpl.m */; };
 		1404271220AAB6A900C31ABC /* MessageQoSEventImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1404271120AAB6A900C31ABC /* MessageQoSEventImpl.m */; };
 		1404271520AAB72D00C31ABC /* IMClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1404271420AAB72D00C31ABC /* IMClientManager.m */; };
-		1404271A20AAC4C900C31ABC /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1404271820AAC4C900C31ABC /* TestViewController.m */; };
-		1404271B20AAC4C900C31ABC /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1404271920AAC4C900C31ABC /* TestViewController.xib */; };
 		1404272020AAD74300C31ABC /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1404271F20AAD74300C31ABC /* ChatViewController.m */; };
 		1404274420AAEC9D00C31ABC /* UUChatTableView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1404273A20AAEC9D00C31ABC /* UUChatTableView.bundle */; };
 		144FFCCC20AD2D56005F7EFA /* JMAVAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 144FFCCB20AD2D56005F7EFA /* JMAVAudioPlayer.m */; };
 		144FFCCF20AD2DD5005F7EFA /* JMMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 144FFCCE20AD2DD5005F7EFA /* JMMessage.m */; };
 		144FFCD220AD2E14005F7EFA /* JMMessageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 144FFCD120AD2E14005F7EFA /* JMMessageFrame.m */; };
 		144FFCD520AD2EDD005F7EFA /* JMProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 144FFCD420AD2EDD005F7EFA /* JMProgressHUD.m */; };
+		144FFCD720AD53C0005F7EFA /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 144FFCD620AD53C0005F7EFA /* MainViewController.xib */; };
+		144FFCE220AD7617005F7EFA /* DataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 144FFCE120AD7617005F7EFA /* DataBaseManager.m */; };
+		144FFCE520AD7805005F7EFA /* ChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 144FFCE420AD7805005F7EFA /* ChatMessage.m */; };
+		144FFCE920AD8578005F7EFA /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 144FFCE820AD8578005F7EFA /* libsqlite3.0.tbd */; };
 		1459A1D920ABC9EE0086E128 /* UIView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1459A1D820ABC9EE0086E128 /* UIView+Helper.m */; };
 		1459A1DC20ABCA5C0086E128 /* UIColor+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1459A1DB20ABCA5C0086E128 /* UIColor+Helper.m */; };
 		149CFA9F20AD1D7C003A9186 /* JMKeyBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 149CFA9E20AD1D7C003A9186 /* JMKeyBoardView.m */; };
@@ -42,13 +43,13 @@
 		149CFAB920AD26A7003A9186 /* JMMessageContentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 149CFAB820AD26A7003A9186 /* JMMessageContentButton.m */; };
 		149CFABC20AD2702003A9186 /* JMImageAvatarBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 149CFABB20AD2702003A9186 /* JMImageAvatarBrowser.m */; };
 		14FB34A120ABFBDF008DE3D8 /* JMChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FB34A020ABFBDF008DE3D8 /* JMChatModel.m */; };
+		3556358F05B6836DD3D3E0A3 /* libPods-Jiemo_IM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DAEBEE30C9074B4BA66F71 /* libPods-Jiemo_IM.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1404269B20AAABC900C31ABC /* Jiemo_IM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jiemo_IM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1404269E20AAABC900C31ABC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1404269F20AAABC900C31ABC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		140426A820AAABC900C31ABC /* Jiemo_IM.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Jiemo_IM.xcdatamodel; sourceTree = "<group>"; };
 		140426AA20AAABCB00C31ABC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		140426AD20AAABCB00C31ABC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		140426AF20AAABCB00C31ABC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -109,9 +110,6 @@
 		1404271120AAB6A900C31ABC /* MessageQoSEventImpl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageQoSEventImpl.m; sourceTree = "<group>"; };
 		1404271320AAB72D00C31ABC /* IMClientManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMClientManager.h; sourceTree = "<group>"; };
 		1404271420AAB72D00C31ABC /* IMClientManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMClientManager.m; sourceTree = "<group>"; };
-		1404271720AAC4C900C31ABC /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		1404271820AAC4C900C31ABC /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
-		1404271920AAC4C900C31ABC /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		1404271E20AAD74300C31ABC /* ChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		1404271F20AAD74300C31ABC /* ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		1404273A20AAEC9D00C31ABC /* UUChatTableView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UUChatTableView.bundle; sourceTree = "<group>"; };
@@ -123,6 +121,13 @@
 		144FFCD120AD2E14005F7EFA /* JMMessageFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMMessageFrame.m; sourceTree = "<group>"; };
 		144FFCD320AD2EDD005F7EFA /* JMProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMProgressHUD.h; sourceTree = "<group>"; };
 		144FFCD420AD2EDD005F7EFA /* JMProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMProgressHUD.m; sourceTree = "<group>"; };
+		144FFCD620AD53C0005F7EFA /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		144FFCDB20AD73D4005F7EFA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		144FFCE020AD7617005F7EFA /* DataBaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataBaseManager.h; sourceTree = "<group>"; };
+		144FFCE120AD7617005F7EFA /* DataBaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataBaseManager.m; sourceTree = "<group>"; };
+		144FFCE320AD7805005F7EFA /* ChatMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatMessage.h; sourceTree = "<group>"; };
+		144FFCE420AD7805005F7EFA /* ChatMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatMessage.m; sourceTree = "<group>"; };
+		144FFCE820AD8578005F7EFA /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		1459A1D720ABC9EE0086E128 /* UIView+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Helper.h"; sourceTree = "<group>"; };
 		1459A1D820ABC9EE0086E128 /* UIView+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Helper.m"; sourceTree = "<group>"; };
 		1459A1DA20ABCA5C0086E128 /* UIColor+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Helper.h"; sourceTree = "<group>"; };
@@ -147,6 +152,9 @@
 		149CFABB20AD2702003A9186 /* JMImageAvatarBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMImageAvatarBrowser.m; sourceTree = "<group>"; };
 		14FB349F20ABFBDF008DE3D8 /* JMChatModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMChatModel.h; sourceTree = "<group>"; };
 		14FB34A020ABFBDF008DE3D8 /* JMChatModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMChatModel.m; sourceTree = "<group>"; };
+		6C524862016CC046D2B2529B /* Pods-Jiemo_IM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jiemo_IM.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jiemo_IM/Pods-Jiemo_IM.release.xcconfig"; sourceTree = "<group>"; };
+		A3405487F660F015533DCB0D /* Pods-Jiemo_IM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jiemo_IM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jiemo_IM/Pods-Jiemo_IM.debug.xcconfig"; sourceTree = "<group>"; };
+		A4DAEBEE30C9074B4BA66F71 /* libPods-Jiemo_IM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jiemo_IM.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,18 +162,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				144FFCE920AD8578005F7EFA /* libsqlite3.0.tbd in Frameworks */,
 				1404270820AAB0F400C31ABC /* libMobileIMSDK4iX_common.a in Frameworks */,
+				3556358F05B6836DD3D3E0A3 /* libPods-Jiemo_IM.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09724D874DDC1AD5DB3A8FAD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A3405487F660F015533DCB0D /* Pods-Jiemo_IM.debug.xcconfig */,
+				6C524862016CC046D2B2529B /* Pods-Jiemo_IM.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		1404269220AAABC900C31ABC = {
 			isa = PBXGroup;
 			children = (
 				1404269D20AAABC900C31ABC /* Jiemo_IM */,
 				1404269C20AAABC900C31ABC /* Products */,
+				09724D874DDC1AD5DB3A8FAD /* Pods */,
+				9A7FF4A12D5066CC40926B7B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -185,13 +206,14 @@
 				140426E420AAB09200C31ABC /* ThirdPart */,
 				140426B720AAAC1900C31ABC /* UI */,
 				1404270920AAB40B00C31ABC /* IMManager */,
+				144FFCDC20AD75AC005F7EFA /* DataBaseManager */,
 				140426AA20AAABCB00C31ABC /* Assets.xcassets */,
 				140426AC20AAABCB00C31ABC /* LaunchScreen.storyboard */,
 				140426AF20AAABCB00C31ABC /* Info.plist */,
+				144FFCDB20AD73D4005F7EFA /* PrefixHeader.pch */,
 				140426C920AAACB300C31ABC /* InfoPlist.strings */,
 				140426D020AAAD3600C31ABC /* Localizable.strings */,
 				140426B020AAABCB00C31ABC /* main.m */,
-				140426A720AAABC900C31ABC /* Jiemo_IM.xcdatamodeld */,
 			);
 			path = Jiemo_IM;
 			sourceTree = "<group>";
@@ -199,10 +221,9 @@
 		140426B720AAAC1900C31ABC /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				1404271C20AAD65700C31ABC /* ChatUI */,
 				140426BB20AAAC1900C31ABC /* BaseUI */,
 				140426B820AAAC1900C31ABC /* MainUI */,
-				1404271620AAC4AD00C31ABC /* TestUI */,
+				1404271C20AAD65700C31ABC /* ChatUI */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -212,6 +233,7 @@
 			children = (
 				140426BA20AAAC1900C31ABC /* MainViewController.h */,
 				140426B920AAAC1900C31ABC /* MainViewController.m */,
+				144FFCD620AD53C0005F7EFA /* MainViewController.xib */,
 			);
 			path = MainUI;
 			sourceTree = "<group>";
@@ -308,16 +330,6 @@
 			path = IMManager;
 			sourceTree = "<group>";
 		};
-		1404271620AAC4AD00C31ABC /* TestUI */ = {
-			isa = PBXGroup;
-			children = (
-				1404271720AAC4C900C31ABC /* TestViewController.h */,
-				1404271820AAC4C900C31ABC /* TestViewController.m */,
-				1404271920AAC4C900C31ABC /* TestViewController.xib */,
-			);
-			path = TestUI;
-			sourceTree = "<group>";
-		};
 		1404271C20AAD65700C31ABC /* ChatUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,6 +338,17 @@
 				1404271F20AAD74300C31ABC /* ChatViewController.m */,
 			);
 			path = ChatUI;
+			sourceTree = "<group>";
+		};
+		144FFCDC20AD75AC005F7EFA /* DataBaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				144FFCE020AD7617005F7EFA /* DataBaseManager.h */,
+				144FFCE120AD7617005F7EFA /* DataBaseManager.m */,
+				144FFCE320AD7805005F7EFA /* ChatMessage.h */,
+				144FFCE420AD7805005F7EFA /* ChatMessage.m */,
+			);
+			path = DataBaseManager;
 			sourceTree = "<group>";
 		};
 		1459A1D020ABC9000086E128 /* Class */ = {
@@ -392,6 +415,15 @@
 			path = ChatClass;
 			sourceTree = "<group>";
 		};
+		9A7FF4A12D5066CC40926B7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				144FFCE820AD8578005F7EFA /* libsqlite3.0.tbd */,
+				A4DAEBEE30C9074B4BA66F71 /* libPods-Jiemo_IM.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -399,9 +431,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 140426B420AAABCB00C31ABC /* Build configuration list for PBXNativeTarget "Jiemo_IM" */;
 			buildPhases = (
+				4DC24AE3DCE36929AEEA27F1 /* [CP] Check Pods Manifest.lock */,
 				1404269720AAABC900C31ABC /* Sources */,
 				1404269820AAABC900C31ABC /* Frameworks */,
 				1404269920AAABC900C31ABC /* Resources */,
+				7883E964E3E45A6A6FB985BD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -455,15 +489,56 @@
 			buildActionMask = 2147483647;
 			files = (
 				140426AE20AAABCB00C31ABC /* LaunchScreen.storyboard in Resources */,
-				1404271B20AAC4C900C31ABC /* TestViewController.xib in Resources */,
 				140426CE20AAAD3600C31ABC /* Localizable.strings in Resources */,
 				1404274420AAEC9D00C31ABC /* UUChatTableView.bundle in Resources */,
 				140426C720AAACB300C31ABC /* InfoPlist.strings in Resources */,
+				144FFCD720AD53C0005F7EFA /* MainViewController.xib in Resources */,
 				140426AB20AAABCB00C31ABC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4DC24AE3DCE36929AEEA27F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Jiemo_IM-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7883E964E3E45A6A6FB985BD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Jiemo_IM/Pods-Jiemo_IM-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Jiemo_IM/Pods-Jiemo_IM-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1404269720AAABC900C31ABC /* Sources */ = {
@@ -478,6 +553,7 @@
 				1404272020AAD74300C31ABC /* ChatViewController.m in Sources */,
 				149CFAB920AD26A7003A9186 /* JMMessageContentButton.m in Sources */,
 				149CFAA820AD1E37003A9186 /* JMEmojiView.m in Sources */,
+				144FFCE220AD7617005F7EFA /* DataBaseManager.m in Sources */,
 				1404271520AAB72D00C31ABC /* IMClientManager.m in Sources */,
 				149CFAAC20AD231E003A9186 /* NSDate+Helper.m in Sources */,
 				144FFCD220AD2E14005F7EFA /* JMMessageFrame.m in Sources */,
@@ -491,11 +567,10 @@
 				140426B120AAABCB00C31ABC /* main.m in Sources */,
 				144FFCCC20AD2D56005F7EFA /* JMAVAudioPlayer.m in Sources */,
 				144FFCD520AD2EDD005F7EFA /* JMProgressHUD.m in Sources */,
-				1404271A20AAC4C900C31ABC /* TestViewController.m in Sources */,
 				140426C220AAAC1900C31ABC /* NavigationController.m in Sources */,
 				1459A1DC20ABCA5C0086E128 /* UIColor+Helper.m in Sources */,
-				140426A920AAABC900C31ABC /* Jiemo_IM.xcdatamodeld in Sources */,
 				140426C020AAAC1900C31ABC /* MainViewController.m in Sources */,
+				144FFCE520AD7805005F7EFA /* ChatMessage.m in Sources */,
 				149CFAA220AD1DEB003A9186 /* JMTextView.m in Sources */,
 				144FFCCF20AD2DD5005F7EFA /* JMMessage.m in Sources */,
 			);
@@ -658,10 +733,12 @@
 		};
 		140426B520AAABCB00C31ABC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3405487F660F015533DCB0D /* Pods-Jiemo_IM.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AQ2Z23949V;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Jiemo_IM/PrefixHeader.pch";
 				INFOPLIST_FILE = Jiemo_IM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -679,10 +756,12 @@
 		};
 		140426B620AAABCB00C31ABC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C524862016CC046D2B2529B /* Pods-Jiemo_IM.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AQ2Z23949V;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Jiemo_IM/PrefixHeader.pch";
 				INFOPLIST_FILE = Jiemo_IM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -720,19 +799,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		140426A720AAABC900C31ABC /* Jiemo_IM.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				140426A820AAABC900C31ABC /* Jiemo_IM.xcdatamodel */,
-			);
-			currentVersion = 140426A820AAABC900C31ABC /* Jiemo_IM.xcdatamodel */;
-			path = Jiemo_IM.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 1404269320AAABC900C31ABC /* Project object */;
 }

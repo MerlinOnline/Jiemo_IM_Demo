@@ -8,16 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class JMKeyBoardView;
 @protocol JMKeyBoardDelegate <NSObject>
 
 @optional //非必实现的方法
 
-/**
- 点击发送时输入框内的文案
- 
- @param textStr 文案
- */
-- (void)textViewContentText:(NSString *)textStr;
+// 发送文字
+- (void)JMKeyBoardView:(JMKeyBoardView *)funcView sendMessage:(NSString *)message;
+
+// 发送图片
+- (void)JMKeyBoardView:(JMKeyBoardView *)funcView sendPicture:(UIImage *)image;
+
+// 发送语音
+- (void)JMKeyBoardView:(JMKeyBoardView *)funcView sendVoice:(NSData *)voice time:(NSInteger)second;
 
 /**
  键盘的frame改变

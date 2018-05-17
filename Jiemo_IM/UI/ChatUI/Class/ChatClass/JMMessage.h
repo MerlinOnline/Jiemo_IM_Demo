@@ -22,14 +22,14 @@ typedef NS_ENUM(NSInteger, MessageFrom) {
 
 @interface JMMessage : NSObject
 
-@property (nonatomic, copy) NSString *strIcon;
 @property (nonatomic, copy) NSString *strId;
+@property (nonatomic, copy) NSString *strIcon;
 @property (nonatomic, copy) NSString *strTime;
 @property (nonatomic, copy) NSString *strName;
 
-@property (nonatomic, copy) NSString *strContent;
 @property (nonatomic, copy) UIImage  *picture;
 @property (nonatomic, copy) NSData   *voice;
+@property (nonatomic, copy) NSString *strContent;
 @property (nonatomic, copy) NSString *strVoiceTime;
 
 @property (nonatomic, assign) MessageType type;

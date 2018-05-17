@@ -77,7 +77,7 @@
         [self.btnContent addTarget:self action:@selector(btnContentClick)  forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:self.btnContent];
         
-        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(UUAVAudioPlayerDidFinishPlay) name:@"VoicePlayHasInterrupt" object:nil];
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(JMAVAudioPlayerDidFinishPlay) name:@"VoicePlayHasInterrupt" object:nil];
         
         //红外线感应监听
         [[NSNotificationCenter defaultCenter] addObserver:self
