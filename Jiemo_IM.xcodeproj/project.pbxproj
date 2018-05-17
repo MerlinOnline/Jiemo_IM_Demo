@@ -30,7 +30,6 @@
 		144FFCCF20AD2DD5005F7EFA /* JMMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 144FFCCE20AD2DD5005F7EFA /* JMMessage.m */; };
 		144FFCD220AD2E14005F7EFA /* JMMessageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 144FFCD120AD2E14005F7EFA /* JMMessageFrame.m */; };
 		144FFCD520AD2EDD005F7EFA /* JMProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 144FFCD420AD2EDD005F7EFA /* JMProgressHUD.m */; };
-		1459A1CF20ABC8930086E128 /* ChatRource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1459A1CE20ABC8930086E128 /* ChatRource.bundle */; };
 		1459A1D920ABC9EE0086E128 /* UIView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1459A1D820ABC9EE0086E128 /* UIView+Helper.m */; };
 		1459A1DC20ABCA5C0086E128 /* UIColor+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1459A1DB20ABCA5C0086E128 /* UIColor+Helper.m */; };
 		149CFA9F20AD1D7C003A9186 /* JMKeyBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 149CFA9E20AD1D7C003A9186 /* JMKeyBoardView.m */; };
@@ -124,7 +123,6 @@
 		144FFCD120AD2E14005F7EFA /* JMMessageFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMMessageFrame.m; sourceTree = "<group>"; };
 		144FFCD320AD2EDD005F7EFA /* JMProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMProgressHUD.h; sourceTree = "<group>"; };
 		144FFCD420AD2EDD005F7EFA /* JMProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMProgressHUD.m; sourceTree = "<group>"; };
-		1459A1CE20ABC8930086E128 /* ChatRource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ChatRource.bundle; sourceTree = "<group>"; };
 		1459A1D720ABC9EE0086E128 /* UIView+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Helper.h"; sourceTree = "<group>"; };
 		1459A1D820ABC9EE0086E128 /* UIView+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Helper.m"; sourceTree = "<group>"; };
 		1459A1DA20ABCA5C0086E128 /* UIColor+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Helper.h"; sourceTree = "<group>"; };
@@ -326,7 +324,6 @@
 				1459A1D020ABC9000086E128 /* Class */,
 				1404271E20AAD74300C31ABC /* ChatViewController.h */,
 				1404271F20AAD74300C31ABC /* ChatViewController.m */,
-				1459A1CE20ABC8930086E128 /* ChatRource.bundle */,
 			);
 			path = ChatUI;
 			sourceTree = "<group>";
@@ -457,7 +454,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1459A1CF20ABC8930086E128 /* ChatRource.bundle in Resources */,
 				140426AE20AAABCB00C31ABC /* LaunchScreen.storyboard in Resources */,
 				1404271B20AAC4C900C31ABC /* TestViewController.xib in Resources */,
 				140426CE20AAAD3600C31ABC /* Localizable.strings in Resources */,
