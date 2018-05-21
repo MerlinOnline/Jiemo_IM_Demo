@@ -65,8 +65,9 @@ static IMClientManager *instance = nil;
     [ConfigEntity registerWithAppKey:@"5418023dfd98c579b6001741"];
     
     // 设置服务器ip和服务器端口
-    [ConfigEntity setServerIp:@"rbcore.52im.net"];
+    [ConfigEntity setServerIp:@"192.168.1.11"];
     [ConfigEntity setServerPort:7901];
+    
     
     // 使用以下代码表示不绑定固定port（由系统自动分配），否则使用默认的7901端口
 //    [ConfigEntity setLocalUdpSendAndListeningPort:-1];

@@ -37,21 +37,21 @@ static NSString *previousTime = nil;
     NSString *URLStr = @"http://img0.bdstatic.com/img/image/shouye/xinshouye/mingxing16.jpg";
     if ([dic[@"isMe"] boolValue]) {
         [dataDic setObject:@(JMMessageFromMe) forKey:@"from"];
-        [dataDic setObject:@"Tim2048" forKey:@"strName"];
+        [dataDic setObject:@"Tim2048" forKey:@"nickName"];
     }else {
         [dataDic setObject:@(JMMessageFromOther) forKey:@"from"];
-        [dataDic setObject:dic[@"userId"] forKey:@"strName"];
+        [dataDic setObject:dic[@"userId"] forKey:@"nickName"];
     }
-    [dataDic setObject:[[NSDate date] description] forKey:@"strTime"];
-    [dataDic setObject:URLStr forKey:@"strIcon"];
+    [dataDic setObject:[[NSDate date] description] forKey:@"msgTime"];
+    [dataDic setObject:URLStr forKey:@"headUtl"];
     
     [message setWithDict:dataDic];
-    [message minuteOffSetStart:previousTime end:dataDic[@"strTime"]];
+    [message minuteOffSetStart:previousTime end:dataDic[@"msgTime"]];
     messageFrame.showTime = message.showDateLabel;
     [messageFrame setMessage:message];
     
     if (message.showDateLabel) {
-        previousTime = dataDic[@"strTime"];
+        previousTime = dataDic[@"msgTime"];
     }
     [self.dataSource addObject:messageFrame];
 }

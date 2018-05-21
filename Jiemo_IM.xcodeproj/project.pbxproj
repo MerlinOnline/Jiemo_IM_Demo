@@ -16,13 +16,16 @@
 		140426C220AAAC1900C31ABC /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140426BE20AAAC1900C31ABC /* NavigationController.m */; };
 		140426C720AAACB300C31ABC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 140426C920AAACB300C31ABC /* InfoPlist.strings */; };
 		140426CE20AAAD3600C31ABC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 140426D020AAAD3600C31ABC /* Localizable.strings */; };
-		1404270820AAB0F400C31ABC /* libMobileIMSDK4iX_common.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1404270720AAB0F300C31ABC /* libMobileIMSDK4iX_common.a */; };
 		1404270C20AAB47A00C31ABC /* ChatBaseEventImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1404270B20AAB47A00C31ABC /* ChatBaseEventImpl.m */; };
 		1404270F20AAB60500C31ABC /* ChatTransDataEventImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1404270E20AAB60500C31ABC /* ChatTransDataEventImpl.m */; };
 		1404271220AAB6A900C31ABC /* MessageQoSEventImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1404271120AAB6A900C31ABC /* MessageQoSEventImpl.m */; };
 		1404271520AAB72D00C31ABC /* IMClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1404271420AAB72D00C31ABC /* IMClientManager.m */; };
 		1404272020AAD74300C31ABC /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1404271F20AAD74300C31ABC /* ChatViewController.m */; };
 		1404274420AAEC9D00C31ABC /* UUChatTableView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1404273A20AAEC9D00C31ABC /* UUChatTableView.bundle */; };
+		143696C320AE65C70041F40C /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 143696C120AE65C70041F40C /* CoreDataModel.xcdatamodeld */; };
+		143696D420AE754B0041F40C /* MessageModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 143696D020AE754B0041F40C /* MessageModel+CoreDataProperties.m */; };
+		143696D520AE754B0041F40C /* MessageModel+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 143696D120AE754B0041F40C /* MessageModel+CoreDataClass.m */; };
+		143696D820AE81350041F40C /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 143696D720AE81350041F40C /* CoreDataManager.m */; };
 		144FFCCC20AD2D56005F7EFA /* JMAVAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 144FFCCB20AD2D56005F7EFA /* JMAVAudioPlayer.m */; };
 		144FFCCF20AD2DD5005F7EFA /* JMMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 144FFCCE20AD2DD5005F7EFA /* JMMessage.m */; };
 		144FFCD220AD2E14005F7EFA /* JMMessageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 144FFCD120AD2E14005F7EFA /* JMMessageFrame.m */; };
@@ -42,6 +45,32 @@
 		149CFAB620AD2688003A9186 /* JMMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 149CFAB520AD2688003A9186 /* JMMessageCell.m */; };
 		149CFAB920AD26A7003A9186 /* JMMessageContentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 149CFAB820AD26A7003A9186 /* JMMessageContentButton.m */; };
 		149CFABC20AD2702003A9186 /* JMImageAvatarBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 149CFABB20AD2702003A9186 /* JMImageAvatarBrowser.m */; };
+		14CC9F0520B25E220027B611 /* LocalUDPDataSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9EC420B25E220027B611 /* LocalUDPDataSender.m */; };
+		14CC9F0620B25E220027B611 /* KeepAliveDaemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9EC620B25E220027B611 /* KeepAliveDaemon.m */; };
+		14CC9F0720B25E220027B611 /* LocalUDPDataReciever.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9ECA20B25E220027B611 /* LocalUDPDataReciever.m */; };
+		14CC9F0820B25E220027B611 /* QoS4ReciveDaemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9ECB20B25E220027B611 /* QoS4ReciveDaemon.m */; };
+		14CC9F0920B25E220027B611 /* AutoReLoginDaemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9ECD20B25E220027B611 /* AutoReLoginDaemon.m */; };
+		14CC9F0A20B25E220027B611 /* QoS4SendDaemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9ECF20B25E220027B611 /* QoS4SendDaemon.m */; };
+		14CC9F0B20B25E220027B611 /* LocalUDPSocketProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9ED020B25E220027B611 /* LocalUDPSocketProvider.m */; };
+		14CC9F0C20B25E220027B611 /* PKeepAlive.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9ED320B25E220027B611 /* PKeepAlive.m */; };
+		14CC9F0D20B25E220027B611 /* PLoginInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9ED620B25E220027B611 /* PLoginInfo.m */; };
+		14CC9F0E20B25E220027B611 /* CharsetHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9EDA20B25E220027B611 /* CharsetHelper.m */; };
+		14CC9F0F20B25E220027B611 /* ProtocalFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9EDB20B25E220027B611 /* ProtocalFactory.m */; };
+		14CC9F1020B25E220027B611 /* PKeepAliveResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9EDD20B25E220027B611 /* PKeepAliveResponse.m */; };
+		14CC9F1120B25E220027B611 /* PErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9EDF20B25E220027B611 /* PErrorResponse.m */; };
+		14CC9F1220B25E220027B611 /* PLoginInfoResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9EE020B25E220027B611 /* PLoginInfoResponse.m */; };
+		14CC9F1320B25E220027B611 /* Protocal.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9EE120B25E220027B611 /* Protocal.m */; };
+		14CC9F1420B25E220027B611 /* ConfigEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9EE520B25E220027B611 /* ConfigEntity.m */; };
+		14CC9F1520B25E220027B611 /* NSMutableDictionary+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9EE820B25E220027B611 /* NSMutableDictionary+Ext.m */; };
+		14CC9F1620B25E220027B611 /* UDPUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9EEF20B25E220027B611 /* UDPUtils.m */; };
+		14CC9F1720B25E220027B611 /* ToolKits.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9EF220B25E220027B611 /* ToolKits.m */; };
+		14CC9F1820B25E220027B611 /* ClientCoreSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9EF320B25E220027B611 /* ClientCoreSDK.m */; };
+		14CC9F1920B25E220027B611 /* RMMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9EF720B25E220027B611 /* RMMapper.m */; };
+		14CC9F1A20B25E220027B611 /* NSUserDefaults+RMSaveCustomObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9EFB20B25E220027B611 /* NSUserDefaults+RMSaveCustomObject.m */; };
+		14CC9F1B20B25E220027B611 /* NSObject+RMArchivable.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9EFD20B25E220027B611 /* NSObject+RMArchivable.m */; };
+		14CC9F1C20B25E220027B611 /* NSObject+RMCopyable.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9EFE20B25E220027B611 /* NSObject+RMCopyable.m */; };
+		14CC9F1D20B25E220027B611 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9F0020B25E220027B611 /* GCDAsyncUdpSocket.m */; };
+		14CC9F1E20B25E220027B611 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC9F0320B25E220027B611 /* Reachability.m */; };
 		14FB34A120ABFBDF008DE3D8 /* JMChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FB34A020ABFBDF008DE3D8 /* JMChatModel.m */; };
 		3556358F05B6836DD3D3E0A3 /* libPods-Jiemo_IM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DAEBEE30C9074B4BA66F71 /* libPods-Jiemo_IM.a */; };
 /* End PBXBuildFile section */
@@ -75,33 +104,6 @@
 		140426E120AAAFFB00C31ABC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		140426E220AAAFFB00C31ABC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		140426E320AAAFFB00C31ABC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
-		140426ED20AAB0F300C31ABC /* PKeepAliveResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKeepAliveResponse.h; sourceTree = "<group>"; };
-		140426EE20AAB0F300C31ABC /* NSMutableDictionary+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Ext.h"; sourceTree = "<group>"; };
-		140426EF20AAB0F300C31ABC /* LocalUDPDataReciever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalUDPDataReciever.h; sourceTree = "<group>"; };
-		140426F020AAB0F300C31ABC /* ErrorCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorCode.h; sourceTree = "<group>"; };
-		140426F120AAB0F300C31ABC /* PErrorResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PErrorResponse.h; sourceTree = "<group>"; };
-		140426F220AAB0F300C31ABC /* ClientCoreSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientCoreSDK.h; sourceTree = "<group>"; };
-		140426F320AAB0F300C31ABC /* QoS4ReciveDaemon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QoS4ReciveDaemon.h; sourceTree = "<group>"; };
-		140426F420AAB0F300C31ABC /* ProtocalType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocalType.h; sourceTree = "<group>"; };
-		140426F520AAB0F300C31ABC /* ChatBaseEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatBaseEvent.h; sourceTree = "<group>"; };
-		140426F620AAB0F300C31ABC /* AutoReLoginDaemon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoReLoginDaemon.h; sourceTree = "<group>"; };
-		140426F720AAB0F300C31ABC /* MessageQoSEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageQoSEvent.h; sourceTree = "<group>"; };
-		140426F820AAB0F300C31ABC /* Protocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Protocal.h; sourceTree = "<group>"; };
-		140426F920AAB0F300C31ABC /* PLoginInfoResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLoginInfoResponse.h; sourceTree = "<group>"; };
-		140426FA20AAB0F300C31ABC /* LocalUDPSocketProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalUDPSocketProvider.h; sourceTree = "<group>"; };
-		140426FB20AAB0F300C31ABC /* ToolKits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolKits.h; sourceTree = "<group>"; };
-		140426FC20AAB0F300C31ABC /* QoS4SendDaemon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QoS4SendDaemon.h; sourceTree = "<group>"; };
-		140426FD20AAB0F300C31ABC /* UDPUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPUtils.h; sourceTree = "<group>"; };
-		140426FE20AAB0F300C31ABC /* PKeepAlive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKeepAlive.h; sourceTree = "<group>"; };
-		140426FF20AAB0F300C31ABC /* PLoginInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLoginInfo.h; sourceTree = "<group>"; };
-		1404270020AAB0F300C31ABC /* LocalUDPDataSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalUDPDataSender.h; sourceTree = "<group>"; };
-		1404270120AAB0F300C31ABC /* ChatTransDataEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTransDataEvent.h; sourceTree = "<group>"; };
-		1404270220AAB0F300C31ABC /* CompletionDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompletionDefine.h; sourceTree = "<group>"; };
-		1404270320AAB0F300C31ABC /* KeepAliveDaemon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeepAliveDaemon.h; sourceTree = "<group>"; };
-		1404270420AAB0F300C31ABC /* ConfigEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigEntity.h; sourceTree = "<group>"; };
-		1404270520AAB0F300C31ABC /* ProtocalFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocalFactory.h; sourceTree = "<group>"; };
-		1404270620AAB0F300C31ABC /* CharsetHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharsetHelper.h; sourceTree = "<group>"; };
-		1404270720AAB0F300C31ABC /* libMobileIMSDK4iX_common.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobileIMSDK4iX_common.a; sourceTree = "<group>"; };
 		1404270A20AAB47A00C31ABC /* ChatBaseEventImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatBaseEventImpl.h; sourceTree = "<group>"; };
 		1404270B20AAB47A00C31ABC /* ChatBaseEventImpl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatBaseEventImpl.m; sourceTree = "<group>"; };
 		1404270D20AAB60500C31ABC /* ChatTransDataEventImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatTransDataEventImpl.h; sourceTree = "<group>"; };
@@ -113,6 +115,13 @@
 		1404271E20AAD74300C31ABC /* ChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		1404271F20AAD74300C31ABC /* ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		1404273A20AAEC9D00C31ABC /* UUChatTableView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UUChatTableView.bundle; sourceTree = "<group>"; };
+		143696C220AE65C70041F40C /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		143696D020AE754B0041F40C /* MessageModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MessageModel+CoreDataProperties.m"; sourceTree = "<group>"; };
+		143696D120AE754B0041F40C /* MessageModel+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MessageModel+CoreDataClass.m"; sourceTree = "<group>"; };
+		143696D220AE754B0041F40C /* MessageModel+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MessageModel+CoreDataClass.h"; sourceTree = "<group>"; };
+		143696D320AE754B0041F40C /* MessageModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MessageModel+CoreDataProperties.h"; sourceTree = "<group>"; };
+		143696D620AE81350041F40C /* CoreDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
+		143696D720AE81350041F40C /* CoreDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		144FFCCA20AD2D56005F7EFA /* JMAVAudioPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMAVAudioPlayer.h; sourceTree = "<group>"; };
 		144FFCCB20AD2D56005F7EFA /* JMAVAudioPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMAVAudioPlayer.m; sourceTree = "<group>"; };
 		144FFCCD20AD2DD5005F7EFA /* JMMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMMessage.h; sourceTree = "<group>"; };
@@ -150,6 +159,64 @@
 		149CFAB820AD26A7003A9186 /* JMMessageContentButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMMessageContentButton.m; sourceTree = "<group>"; };
 		149CFABA20AD2702003A9186 /* JMImageAvatarBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMImageAvatarBrowser.h; sourceTree = "<group>"; };
 		149CFABB20AD2702003A9186 /* JMImageAvatarBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMImageAvatarBrowser.m; sourceTree = "<group>"; };
+		14CC9EC320B25E220027B611 /* LocalUDPDataReciever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalUDPDataReciever.h; sourceTree = "<group>"; };
+		14CC9EC420B25E220027B611 /* LocalUDPDataSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalUDPDataSender.m; sourceTree = "<group>"; };
+		14CC9EC520B25E220027B611 /* QoS4ReciveDaemon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QoS4ReciveDaemon.h; sourceTree = "<group>"; };
+		14CC9EC620B25E220027B611 /* KeepAliveDaemon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeepAliveDaemon.m; sourceTree = "<group>"; };
+		14CC9EC720B25E220027B611 /* AutoReLoginDaemon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoReLoginDaemon.h; sourceTree = "<group>"; };
+		14CC9EC820B25E220027B611 /* LocalUDPSocketProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalUDPSocketProvider.h; sourceTree = "<group>"; };
+		14CC9EC920B25E220027B611 /* QoS4SendDaemon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QoS4SendDaemon.h; sourceTree = "<group>"; };
+		14CC9ECA20B25E220027B611 /* LocalUDPDataReciever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalUDPDataReciever.m; sourceTree = "<group>"; };
+		14CC9ECB20B25E220027B611 /* QoS4ReciveDaemon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QoS4ReciveDaemon.m; sourceTree = "<group>"; };
+		14CC9ECC20B25E220027B611 /* LocalUDPDataSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalUDPDataSender.h; sourceTree = "<group>"; };
+		14CC9ECD20B25E220027B611 /* AutoReLoginDaemon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoReLoginDaemon.m; sourceTree = "<group>"; };
+		14CC9ECE20B25E220027B611 /* KeepAliveDaemon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeepAliveDaemon.h; sourceTree = "<group>"; };
+		14CC9ECF20B25E220027B611 /* QoS4SendDaemon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QoS4SendDaemon.m; sourceTree = "<group>"; };
+		14CC9ED020B25E220027B611 /* LocalUDPSocketProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalUDPSocketProvider.m; sourceTree = "<group>"; };
+		14CC9ED220B25E220027B611 /* PKeepAliveResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKeepAliveResponse.h; sourceTree = "<group>"; };
+		14CC9ED320B25E220027B611 /* PKeepAlive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKeepAlive.m; sourceTree = "<group>"; };
+		14CC9ED420B25E220027B611 /* ErrorCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorCode.h; sourceTree = "<group>"; };
+		14CC9ED520B25E220027B611 /* PErrorResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PErrorResponse.h; sourceTree = "<group>"; };
+		14CC9ED620B25E220027B611 /* PLoginInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLoginInfo.m; sourceTree = "<group>"; };
+		14CC9ED720B25E220027B611 /* ProtocalType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocalType.h; sourceTree = "<group>"; };
+		14CC9ED820B25E220027B611 /* Protocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Protocal.h; sourceTree = "<group>"; };
+		14CC9ED920B25E220027B611 /* PLoginInfoResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLoginInfoResponse.h; sourceTree = "<group>"; };
+		14CC9EDA20B25E220027B611 /* CharsetHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharsetHelper.m; sourceTree = "<group>"; };
+		14CC9EDB20B25E220027B611 /* ProtocalFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocalFactory.m; sourceTree = "<group>"; };
+		14CC9EDC20B25E220027B611 /* PKeepAlive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKeepAlive.h; sourceTree = "<group>"; };
+		14CC9EDD20B25E220027B611 /* PKeepAliveResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKeepAliveResponse.m; sourceTree = "<group>"; };
+		14CC9EDE20B25E220027B611 /* PLoginInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLoginInfo.h; sourceTree = "<group>"; };
+		14CC9EDF20B25E220027B611 /* PErrorResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PErrorResponse.m; sourceTree = "<group>"; };
+		14CC9EE020B25E220027B611 /* PLoginInfoResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLoginInfoResponse.m; sourceTree = "<group>"; };
+		14CC9EE120B25E220027B611 /* Protocal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Protocal.m; sourceTree = "<group>"; };
+		14CC9EE220B25E220027B611 /* ProtocalFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocalFactory.h; sourceTree = "<group>"; };
+		14CC9EE320B25E220027B611 /* CharsetHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharsetHelper.h; sourceTree = "<group>"; };
+		14CC9EE420B25E220027B611 /* ClientCoreSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientCoreSDK.h; sourceTree = "<group>"; };
+		14CC9EE520B25E220027B611 /* ConfigEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigEntity.m; sourceTree = "<group>"; };
+		14CC9EE720B25E220027B611 /* NSMutableDictionary+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Ext.h"; sourceTree = "<group>"; };
+		14CC9EE820B25E220027B611 /* NSMutableDictionary+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Ext.m"; sourceTree = "<group>"; };
+		14CC9EE920B25E220027B611 /* CompletionDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompletionDefine.h; sourceTree = "<group>"; };
+		14CC9EEB20B25E220027B611 /* ChatBaseEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatBaseEvent.h; sourceTree = "<group>"; };
+		14CC9EEC20B25E220027B611 /* MessageQoSEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageQoSEvent.h; sourceTree = "<group>"; };
+		14CC9EED20B25E220027B611 /* ChatTransDataEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTransDataEvent.h; sourceTree = "<group>"; };
+		14CC9EEF20B25E220027B611 /* UDPUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDPUtils.m; sourceTree = "<group>"; };
+		14CC9EF020B25E220027B611 /* ToolKits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolKits.h; sourceTree = "<group>"; };
+		14CC9EF120B25E220027B611 /* UDPUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPUtils.h; sourceTree = "<group>"; };
+		14CC9EF220B25E220027B611 /* ToolKits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolKits.m; sourceTree = "<group>"; };
+		14CC9EF320B25E220027B611 /* ClientCoreSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientCoreSDK.m; sourceTree = "<group>"; };
+		14CC9EF420B25E220027B611 /* ConfigEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigEntity.h; sourceTree = "<group>"; };
+		14CC9EF720B25E220027B611 /* RMMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMapper.m; sourceTree = "<group>"; };
+		14CC9EF820B25E220027B611 /* NSUserDefaults+RMSaveCustomObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+RMSaveCustomObject.h"; sourceTree = "<group>"; };
+		14CC9EF920B25E220027B611 /* NSObject+RMArchivable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RMArchivable.h"; sourceTree = "<group>"; };
+		14CC9EFA20B25E220027B611 /* NSObject+RMCopyable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RMCopyable.h"; sourceTree = "<group>"; };
+		14CC9EFB20B25E220027B611 /* NSUserDefaults+RMSaveCustomObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+RMSaveCustomObject.m"; sourceTree = "<group>"; };
+		14CC9EFC20B25E220027B611 /* RMMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMapper.h; sourceTree = "<group>"; };
+		14CC9EFD20B25E220027B611 /* NSObject+RMArchivable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RMArchivable.m"; sourceTree = "<group>"; };
+		14CC9EFE20B25E220027B611 /* NSObject+RMCopyable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RMCopyable.m"; sourceTree = "<group>"; };
+		14CC9F0020B25E220027B611 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		14CC9F0120B25E220027B611 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		14CC9F0320B25E220027B611 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		14CC9F0420B25E220027B611 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		14FB349F20ABFBDF008DE3D8 /* JMChatModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMChatModel.h; sourceTree = "<group>"; };
 		14FB34A020ABFBDF008DE3D8 /* JMChatModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMChatModel.m; sourceTree = "<group>"; };
 		6C524862016CC046D2B2529B /* Pods-Jiemo_IM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jiemo_IM.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jiemo_IM/Pods-Jiemo_IM.release.xcconfig"; sourceTree = "<group>"; };
@@ -163,7 +230,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				144FFCE920AD8578005F7EFA /* libsqlite3.0.tbd in Frameworks */,
-				1404270820AAB0F400C31ABC /* libMobileIMSDK4iX_common.a in Frameworks */,
 				3556358F05B6836DD3D3E0A3 /* libPods-Jiemo_IM.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,6 +273,7 @@
 				140426B720AAAC1900C31ABC /* UI */,
 				1404270920AAB40B00C31ABC /* IMManager */,
 				144FFCDC20AD75AC005F7EFA /* DataBaseManager */,
+				143696C020AE65840041F40C /* CoreDataManager */,
 				140426AA20AAABCB00C31ABC /* Assets.xcassets */,
 				140426AC20AAABCB00C31ABC /* LaunchScreen.storyboard */,
 				140426AF20AAABCB00C31ABC /* Info.plist */,
@@ -252,67 +319,9 @@
 		140426E420AAB09200C31ABC /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
-				140426E920AAB0F300C31ABC /* MobileIMSDK4iLib */,
+				14CC9EC020B25E220027B611 /* MobileIMSDK4i */,
 			);
 			path = ThirdPart;
-			sourceTree = "<group>";
-		};
-		140426E920AAB0F300C31ABC /* MobileIMSDK4iLib */ = {
-			isa = PBXGroup;
-			children = (
-				140426EA20AAB0F300C31ABC /* usr */,
-				1404270720AAB0F300C31ABC /* libMobileIMSDK4iX_common.a */,
-			);
-			path = MobileIMSDK4iLib;
-			sourceTree = "<group>";
-		};
-		140426EA20AAB0F300C31ABC /* usr */ = {
-			isa = PBXGroup;
-			children = (
-				140426EB20AAB0F300C31ABC /* local */,
-			);
-			path = usr;
-			sourceTree = "<group>";
-		};
-		140426EB20AAB0F300C31ABC /* local */ = {
-			isa = PBXGroup;
-			children = (
-				140426EC20AAB0F300C31ABC /* include */,
-			);
-			path = local;
-			sourceTree = "<group>";
-		};
-		140426EC20AAB0F300C31ABC /* include */ = {
-			isa = PBXGroup;
-			children = (
-				140426ED20AAB0F300C31ABC /* PKeepAliveResponse.h */,
-				140426EE20AAB0F300C31ABC /* NSMutableDictionary+Ext.h */,
-				140426EF20AAB0F300C31ABC /* LocalUDPDataReciever.h */,
-				140426F020AAB0F300C31ABC /* ErrorCode.h */,
-				140426F120AAB0F300C31ABC /* PErrorResponse.h */,
-				140426F220AAB0F300C31ABC /* ClientCoreSDK.h */,
-				140426F320AAB0F300C31ABC /* QoS4ReciveDaemon.h */,
-				140426F420AAB0F300C31ABC /* ProtocalType.h */,
-				140426F520AAB0F300C31ABC /* ChatBaseEvent.h */,
-				140426F620AAB0F300C31ABC /* AutoReLoginDaemon.h */,
-				140426F720AAB0F300C31ABC /* MessageQoSEvent.h */,
-				140426F820AAB0F300C31ABC /* Protocal.h */,
-				140426F920AAB0F300C31ABC /* PLoginInfoResponse.h */,
-				140426FA20AAB0F300C31ABC /* LocalUDPSocketProvider.h */,
-				140426FB20AAB0F300C31ABC /* ToolKits.h */,
-				140426FC20AAB0F300C31ABC /* QoS4SendDaemon.h */,
-				140426FD20AAB0F300C31ABC /* UDPUtils.h */,
-				140426FE20AAB0F300C31ABC /* PKeepAlive.h */,
-				140426FF20AAB0F300C31ABC /* PLoginInfo.h */,
-				1404270020AAB0F300C31ABC /* LocalUDPDataSender.h */,
-				1404270120AAB0F300C31ABC /* ChatTransDataEvent.h */,
-				1404270220AAB0F300C31ABC /* CompletionDefine.h */,
-				1404270320AAB0F300C31ABC /* KeepAliveDaemon.h */,
-				1404270420AAB0F300C31ABC /* ConfigEntity.h */,
-				1404270520AAB0F300C31ABC /* ProtocalFactory.h */,
-				1404270620AAB0F300C31ABC /* CharsetHelper.h */,
-			);
-			path = include;
 			sourceTree = "<group>";
 		};
 		1404270920AAB40B00C31ABC /* IMManager */ = {
@@ -338,6 +347,20 @@
 				1404271F20AAD74300C31ABC /* ChatViewController.m */,
 			);
 			path = ChatUI;
+			sourceTree = "<group>";
+		};
+		143696C020AE65840041F40C /* CoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				143696C120AE65C70041F40C /* CoreDataModel.xcdatamodeld */,
+				143696D220AE754B0041F40C /* MessageModel+CoreDataClass.h */,
+				143696D120AE754B0041F40C /* MessageModel+CoreDataClass.m */,
+				143696D320AE754B0041F40C /* MessageModel+CoreDataProperties.h */,
+				143696D020AE754B0041F40C /* MessageModel+CoreDataProperties.m */,
+				143696D620AE81350041F40C /* CoreDataManager.h */,
+				143696D720AE81350041F40C /* CoreDataManager.m */,
+			);
+			path = CoreDataManager;
 			sourceTree = "<group>";
 		};
 		144FFCDC20AD75AC005F7EFA /* DataBaseManager */ = {
@@ -413,6 +436,151 @@
 				144FFCD420AD2EDD005F7EFA /* JMProgressHUD.m */,
 			);
 			path = ChatClass;
+			sourceTree = "<group>";
+		};
+		14CC9EC020B25E220027B611 /* MobileIMSDK4i */ = {
+			isa = PBXGroup;
+			children = (
+				14CC9EC120B25E220027B611 /* Core */,
+				14CC9EF520B25E220027B611 /* Thirdpart */,
+			);
+			path = MobileIMSDK4i;
+			sourceTree = "<group>";
+		};
+		14CC9EC120B25E220027B611 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				14CC9EC220B25E220027B611 /* Impl */,
+				14CC9ED120B25E220027B611 /* Protocal */,
+				14CC9EE620B25E220027B611 /* Other */,
+				14CC9EEA20B25E220027B611 /* Delegate */,
+				14CC9EEE20B25E220027B611 /* Utils */,
+				14CC9EE420B25E220027B611 /* ClientCoreSDK.h */,
+				14CC9EF320B25E220027B611 /* ClientCoreSDK.m */,
+				14CC9EF420B25E220027B611 /* ConfigEntity.h */,
+				14CC9EE520B25E220027B611 /* ConfigEntity.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		14CC9EC220B25E220027B611 /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+				14CC9EC820B25E220027B611 /* LocalUDPSocketProvider.h */,
+				14CC9ED020B25E220027B611 /* LocalUDPSocketProvider.m */,
+				14CC9EC320B25E220027B611 /* LocalUDPDataReciever.h */,
+				14CC9ECA20B25E220027B611 /* LocalUDPDataReciever.m */,
+				14CC9ECC20B25E220027B611 /* LocalUDPDataSender.h */,
+				14CC9EC420B25E220027B611 /* LocalUDPDataSender.m */,
+				14CC9ECE20B25E220027B611 /* KeepAliveDaemon.h */,
+				14CC9EC620B25E220027B611 /* KeepAliveDaemon.m */,
+				14CC9EC720B25E220027B611 /* AutoReLoginDaemon.h */,
+				14CC9ECD20B25E220027B611 /* AutoReLoginDaemon.m */,
+				14CC9EC920B25E220027B611 /* QoS4SendDaemon.h */,
+				14CC9ECF20B25E220027B611 /* QoS4SendDaemon.m */,
+				14CC9EC520B25E220027B611 /* QoS4ReciveDaemon.h */,
+				14CC9ECB20B25E220027B611 /* QoS4ReciveDaemon.m */,
+			);
+			path = Impl;
+			sourceTree = "<group>";
+		};
+		14CC9ED120B25E220027B611 /* Protocal */ = {
+			isa = PBXGroup;
+			children = (
+				14CC9EDC20B25E220027B611 /* PKeepAlive.h */,
+				14CC9ED320B25E220027B611 /* PKeepAlive.m */,
+				14CC9ED220B25E220027B611 /* PKeepAliveResponse.h */,
+				14CC9EDD20B25E220027B611 /* PKeepAliveResponse.m */,
+				14CC9ED520B25E220027B611 /* PErrorResponse.h */,
+				14CC9EDF20B25E220027B611 /* PErrorResponse.m */,
+				14CC9EE320B25E220027B611 /* CharsetHelper.h */,
+				14CC9EDA20B25E220027B611 /* CharsetHelper.m */,
+				14CC9EE220B25E220027B611 /* ProtocalFactory.h */,
+				14CC9EDB20B25E220027B611 /* ProtocalFactory.m */,
+				14CC9ED920B25E220027B611 /* PLoginInfoResponse.h */,
+				14CC9EE020B25E220027B611 /* PLoginInfoResponse.m */,
+				14CC9EDE20B25E220027B611 /* PLoginInfo.h */,
+				14CC9ED620B25E220027B611 /* PLoginInfo.m */,
+				14CC9ED820B25E220027B611 /* Protocal.h */,
+				14CC9EE120B25E220027B611 /* Protocal.m */,
+				14CC9ED720B25E220027B611 /* ProtocalType.h */,
+				14CC9ED420B25E220027B611 /* ErrorCode.h */,
+			);
+			path = Protocal;
+			sourceTree = "<group>";
+		};
+		14CC9EE620B25E220027B611 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				14CC9EE920B25E220027B611 /* CompletionDefine.h */,
+				14CC9EE720B25E220027B611 /* NSMutableDictionary+Ext.h */,
+				14CC9EE820B25E220027B611 /* NSMutableDictionary+Ext.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		14CC9EEA20B25E220027B611 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				14CC9EEB20B25E220027B611 /* ChatBaseEvent.h */,
+				14CC9EEC20B25E220027B611 /* MessageQoSEvent.h */,
+				14CC9EED20B25E220027B611 /* ChatTransDataEvent.h */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		14CC9EEE20B25E220027B611 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				14CC9EF020B25E220027B611 /* ToolKits.h */,
+				14CC9EF220B25E220027B611 /* ToolKits.m */,
+				14CC9EF120B25E220027B611 /* UDPUtils.h */,
+				14CC9EEF20B25E220027B611 /* UDPUtils.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		14CC9EF520B25E220027B611 /* Thirdpart */ = {
+			isa = PBXGroup;
+			children = (
+				14CC9EF620B25E220027B611 /* RMMapper */,
+				14CC9EFF20B25E220027B611 /* UDP */,
+				14CC9F0220B25E220027B611 /* Reachability */,
+			);
+			path = Thirdpart;
+			sourceTree = "<group>";
+		};
+		14CC9EF620B25E220027B611 /* RMMapper */ = {
+			isa = PBXGroup;
+			children = (
+				14CC9EFC20B25E220027B611 /* RMMapper.h */,
+				14CC9EF720B25E220027B611 /* RMMapper.m */,
+				14CC9EF820B25E220027B611 /* NSUserDefaults+RMSaveCustomObject.h */,
+				14CC9EFB20B25E220027B611 /* NSUserDefaults+RMSaveCustomObject.m */,
+				14CC9EF920B25E220027B611 /* NSObject+RMArchivable.h */,
+				14CC9EFD20B25E220027B611 /* NSObject+RMArchivable.m */,
+				14CC9EFA20B25E220027B611 /* NSObject+RMCopyable.h */,
+				14CC9EFE20B25E220027B611 /* NSObject+RMCopyable.m */,
+			);
+			path = RMMapper;
+			sourceTree = "<group>";
+		};
+		14CC9EFF20B25E220027B611 /* UDP */ = {
+			isa = PBXGroup;
+			children = (
+				14CC9F0120B25E220027B611 /* GCDAsyncUdpSocket.h */,
+				14CC9F0020B25E220027B611 /* GCDAsyncUdpSocket.m */,
+			);
+			path = UDP;
+			sourceTree = "<group>";
+		};
+		14CC9F0220B25E220027B611 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				14CC9F0420B25E220027B611 /* Reachability.h */,
+				14CC9F0320B25E220027B611 /* Reachability.m */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 		9A7FF4A12D5066CC40926B7B /* Frameworks */ = {
@@ -545,34 +713,64 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14CC9F1820B25E220027B611 /* ClientCoreSDK.m in Sources */,
+				14CC9F1C20B25E220027B611 /* NSObject+RMCopyable.m in Sources */,
 				149CFAB620AD2688003A9186 /* JMMessageCell.m in Sources */,
+				14CC9F1220B25E220027B611 /* PLoginInfoResponse.m in Sources */,
+				143696C320AE65C70041F40C /* CoreDataModel.xcdatamodeld in Sources */,
 				149CFA9F20AD1D7C003A9186 /* JMKeyBoardView.m in Sources */,
+				14CC9F1120B25E220027B611 /* PErrorResponse.m in Sources */,
 				140426A020AAABC900C31ABC /* AppDelegate.m in Sources */,
 				149CFAB220AD250D003A9186 /* JMChatCategory.m in Sources */,
 				1404270F20AAB60500C31ABC /* ChatTransDataEventImpl.m in Sources */,
 				1404272020AAD74300C31ABC /* ChatViewController.m in Sources */,
 				149CFAB920AD26A7003A9186 /* JMMessageContentButton.m in Sources */,
 				149CFAA820AD1E37003A9186 /* JMEmojiView.m in Sources */,
+				14CC9F1520B25E220027B611 /* NSMutableDictionary+Ext.m in Sources */,
 				144FFCE220AD7617005F7EFA /* DataBaseManager.m in Sources */,
+				143696D820AE81350041F40C /* CoreDataManager.m in Sources */,
 				1404271520AAB72D00C31ABC /* IMClientManager.m in Sources */,
+				143696D420AE754B0041F40C /* MessageModel+CoreDataProperties.m in Sources */,
+				14CC9F0C20B25E220027B611 /* PKeepAlive.m in Sources */,
+				14CC9F0720B25E220027B611 /* LocalUDPDataReciever.m in Sources */,
 				149CFAAC20AD231E003A9186 /* NSDate+Helper.m in Sources */,
 				144FFCD220AD2E14005F7EFA /* JMMessageFrame.m in Sources */,
 				1404271220AAB6A900C31ABC /* MessageQoSEventImpl.m in Sources */,
+				14CC9F0E20B25E220027B611 /* CharsetHelper.m in Sources */,
+				14CC9F1E20B25E220027B611 /* Reachability.m in Sources */,
 				1404270C20AAB47A00C31ABC /* ChatBaseEventImpl.m in Sources */,
+				14CC9F0A20B25E220027B611 /* QoS4SendDaemon.m in Sources */,
 				149CFABC20AD2702003A9186 /* JMImageAvatarBrowser.m in Sources */,
+				14CC9F1920B25E220027B611 /* RMMapper.m in Sources */,
+				14CC9F1A20B25E220027B611 /* NSUserDefaults+RMSaveCustomObject.m in Sources */,
 				140426C120AAAC1900C31ABC /* BaseViewController.m in Sources */,
+				14CC9F0520B25E220027B611 /* LocalUDPDataSender.m in Sources */,
 				14FB34A120ABFBDF008DE3D8 /* JMChatModel.m in Sources */,
+				14CC9F1B20B25E220027B611 /* NSObject+RMArchivable.m in Sources */,
+				14CC9F0820B25E220027B611 /* QoS4ReciveDaemon.m in Sources */,
+				14CC9F1420B25E220027B611 /* ConfigEntity.m in Sources */,
 				1459A1D920ABC9EE0086E128 /* UIView+Helper.m in Sources */,
 				149CFAA520AD1E2A003A9186 /* JMMoreView.m in Sources */,
+				14CC9F1020B25E220027B611 /* PKeepAliveResponse.m in Sources */,
 				140426B120AAABCB00C31ABC /* main.m in Sources */,
+				14CC9F0F20B25E220027B611 /* ProtocalFactory.m in Sources */,
+				14CC9F0620B25E220027B611 /* KeepAliveDaemon.m in Sources */,
 				144FFCCC20AD2D56005F7EFA /* JMAVAudioPlayer.m in Sources */,
+				143696D520AE754B0041F40C /* MessageModel+CoreDataClass.m in Sources */,
 				144FFCD520AD2EDD005F7EFA /* JMProgressHUD.m in Sources */,
+				14CC9F1620B25E220027B611 /* UDPUtils.m in Sources */,
 				140426C220AAAC1900C31ABC /* NavigationController.m in Sources */,
 				1459A1DC20ABCA5C0086E128 /* UIColor+Helper.m in Sources */,
+				14CC9F1320B25E220027B611 /* Protocal.m in Sources */,
 				140426C020AAAC1900C31ABC /* MainViewController.m in Sources */,
+				14CC9F1D20B25E220027B611 /* GCDAsyncUdpSocket.m in Sources */,
 				144FFCE520AD7805005F7EFA /* ChatMessage.m in Sources */,
 				149CFAA220AD1DEB003A9186 /* JMTextView.m in Sources */,
+				14CC9F1720B25E220027B611 /* ToolKits.m in Sources */,
+				14CC9F0920B25E220027B611 /* AutoReLoginDaemon.m in Sources */,
+				14CC9F0B20B25E220027B611 /* LocalUDPSocketProvider.m in Sources */,
 				144FFCCF20AD2DD5005F7EFA /* JMMessage.m in Sources */,
+				14CC9F0D20B25E220027B611 /* PLoginInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -799,6 +997,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		143696C120AE65C70041F40C /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				143696C220AE65C70041F40C /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 143696C220AE65C70041F40C /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1404269320AAABC900C31ABC /* Project object */;
 }

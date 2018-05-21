@@ -99,13 +99,13 @@
 //头像点击
 - (void)btnHeadImageClick:(UIButton *)button{
     if ([self.delegate respondsToSelector:@selector(chatCell:headImageDidClick:)])  {
-        [self.delegate chatCell:self headImageDidClick:self.messageFrame.message.strId];
+        [self.delegate chatCell:self headImageDidClick:self.messageFrame.message.toUserId];
     }
 }
 
 - (void)btnContentClick{
     //play audio
-    if (self.messageFrame.message.type == JMMessageTypeVoice) {
+    if (self.messageFrame.message.msgType == JMMessageTypeVoice) {
         if(!_contentVoiceIsPlaying){
             [[NSNotificationCenter defaultCenter] postNotificationName:@"VoicePlayHasInterrupt" object:nil];
             _contentVoiceIsPlaying = YES;
@@ -118,7 +118,7 @@
         }
     }
     //show the picture
-    else if (self.messageFrame.message.type == JMMessageTypePicture)
+    else if (self.messageFrame.message.msgType == JMMessageTypePicture)
     {
         if (self.btnContent.backImageView) {
             [JMImageAvatarBrowser showImage:self.btnContent.backImageView];
@@ -128,7 +128,7 @@
         }
     }
     // show text and gonna copy that
-    else if (self.messageFrame.message.type == JMMessageTypeText)
+    else if (self.messageFrame.message.msgType == JMMessageTypeText)
     {
         [self.btnContent becomeFirstResponder];
         UIMenuController *menu = [UIMenuController sharedMenuController];
@@ -165,7 +165,7 @@
     JMMessage *message = messageFrame.message;
     
     // 1、设置时间
-    self.dateLabel.text = message.strTime;
+    self.dateLabel.text = message.msgTime;
     self.dateLabel.frame = messageFrame.timeF;
     
     // 2、设置头像
@@ -174,7 +174,7 @@
     [self.headImageButton setBackgroundImage:[UIImage imageWithName:@"headImage.jpeg"] forState:UIControlStateNormal];
     
     // 3、设置下标
-    self.namelabel.text = message.strName;
+    self.namelabel.text = message.fromUserId;
     self.namelabel.frame = messageFrame.nameF;
     
     // 4、设置内容
@@ -207,9 +207,9 @@
     [self.btnContent setBackgroundImage:normal forState:UIControlStateNormal];
     [self.btnContent setBackgroundImage:normal forState:UIControlStateHighlighted];
     
-    switch (message.type) {
+    switch (message.msgType) {
         case JMMessageTypeText:
-            [self.btnContent setTitle:message.strContent forState:UIControlStateNormal];
+            [self.btnContent setTitle:message.msg forState:UIControlStateNormal];
             break;
         case JMMessageTypePicture:
         {
@@ -222,7 +222,7 @@
         case JMMessageTypeVoice:
         {
             self.btnContent.voiceBackView.hidden = NO;
-            self.btnContent.second.text = [NSString stringWithFormat:@"%@'s Voice",message.strVoiceTime];
+            self.btnContent.second.text = [NSString stringWithFormat:@"%@'s Voice",message.voiceTime];
             _songData = message.voice;
             //            _voiceURL = [NSString stringWithFormat:@"%@%@",RESOURCE_URL_HOST,message.strVoice];
         }

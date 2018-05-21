@@ -20,7 +20,7 @@
     
     // 1、计算时间的位置
     if (_showTime){
-        CGSize timeSize = [_message.strTime sizeWithFont:ChatTimeFont constrainedToSize:CGSizeMake(300, 100)];
+        CGSize timeSize = [_message.msgTime sizeWithFont:ChatTimeFont constrainedToSize:CGSizeMake(300, 100)];
         _timeF = CGRectMake((screenW - timeSize.width) / 2, ChatMargin, timeSize.width, timeSize.height);
     } else {
         _timeF = CGRectZero;
@@ -31,7 +31,7 @@
     _iconF = CGRectMake(iconX, CGRectGetMaxY(_timeF) + ChatMargin, ChatIconWH, ChatIconWH);
     
     // 3、计算ID位置
-    CGSize nameSize = [_message.strName sizeWithFont:ChatTimeFont constrainedToSize:CGSizeMake(ChatIconWH+ChatMargin, 50)];
+    CGSize nameSize = [_message.fromUserName sizeWithFont:ChatTimeFont constrainedToSize:CGSizeMake(ChatIconWH+ChatMargin, 50)];
     _nameF = CGRectMake(iconX-ChatMargin/2.0, CGRectGetMaxY(_iconF) + ChatMargin/2.0, ChatIconWH+ChatMargin, nameSize.height);
     
     // 4、计算内容位置
@@ -39,9 +39,9 @@
     
     //根据种类分
     CGSize contentSize;
-    switch (_message.type) {
+    switch (_message.msgType) {
         case JMMessageTypeText:
-            contentSize = [_message.strContent sizeWithFont:ChatContentFont constrainedToSize:CGSizeMake(MAX(ChatContentW, screenW*0.6), CGFLOAT_MAX)];
+            contentSize = [_message.msg sizeWithFont:ChatContentFont constrainedToSize:CGSizeMake(MAX(ChatContentW, screenW*0.6), CGFLOAT_MAX)];
             contentSize.height = MAX(contentSize.height, 30);
             contentSize.width = MAX(contentSize.width, 40);
             break;

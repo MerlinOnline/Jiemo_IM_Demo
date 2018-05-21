@@ -110,7 +110,7 @@
 - (void)receiveMessageNotification:(NSNotification*)notice {
     
     NSDictionary *msgDic = notice.object;
-    NSDictionary *dic = @{@"strContent": msgDic[@"message"],
+    NSDictionary *dic = @{@"msg": msgDic[@"message"],
                           @"userId":msgDic[@"userId"],
                           @"type": @(JMMessageTypeText),
                           @"isMe":@NO};
@@ -121,8 +121,8 @@
 
 - (void)JMKeyBoardView:(JMKeyBoardView *)funcView sendMessage:(NSString *)message
 {
-    NSDictionary *dic = @{@"strContent": message,
-                          @"type": @(JMMessageTypeText),
+    NSDictionary *dic = @{@"msg": message,
+                          @"msgType": @(JMMessageTypeText),
                           @"isMe": @YES};
     [self dealTheFunctionData:dic];
     [[IMClientManager sharedInstance] sendMessageDataWithMsg:message toFriendId:self.friendId];
@@ -131,7 +131,7 @@
 - (void)JMKeyBoardView:(JMKeyBoardView *)funcView sendPicture:(UIImage *)image
 {
     NSDictionary *dic = @{@"picture": image,
-                          @"type": @(JMMessageTypePicture),
+                          @"msgType": @(JMMessageTypePicture),
                           @"isMe": @YES};
     [self dealTheFunctionData:dic];
 }
@@ -139,8 +139,8 @@
 - (void)JMKeyBoardView:(JMKeyBoardView *)funcView sendVoice:(NSData *)voice time:(NSInteger)second
 {
     NSDictionary *dic = @{@"voice": voice,
-                          @"strVoiceTime": [NSString stringWithFormat:@"%d",(int)second],
-                          @"type": @(JMMessageTypeVoice),
+                          @"voiceTime": [NSString stringWithFormat:@"%d",(int)second],
+                          @"msgType": @(JMMessageTypeVoice),
                           @"isMe": @YES};
     [self dealTheFunctionData:dic];
 }
@@ -239,7 +239,7 @@
 
 - (void)chatCell:(JMMessageCell *)cell headImageDidClick:(NSString *)userId
 {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:cell.messageFrame.message.strName message:@"headImage clicked" delegate:nil cancelButtonTitle:@"sure" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:cell.messageFrame.message.toUserName message:@"headImage clicked" delegate:nil cancelButtonTitle:@"sure" otherButtonTitles:nil];
     [alert show];
 }
 
